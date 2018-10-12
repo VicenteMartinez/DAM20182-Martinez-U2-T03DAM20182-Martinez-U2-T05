@@ -1,0 +1,34 @@
+page-login {
+    ion-content
+    {
+        background: #393939 !important;
+        overflow: auto;
+    }
+
+    ion-input {
+        ::placeholder {
+            color: #414141 !important;
+        }
+    }
+    .button {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+    }
+    
+    .relative {
+        //border: 3px solid #ffffff;
+        position: relative;
+        width: 100%;
+        height: 25%;
+        
+    }
+
+    img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        //border: 4px solid #ffffff;
+        margin-bottom: 1em;
+    }
+}
