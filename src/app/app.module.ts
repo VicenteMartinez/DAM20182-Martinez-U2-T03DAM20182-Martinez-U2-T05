@@ -10,6 +10,12 @@ import { Materias } from '../pages/materias/materias';
 import { UsuMaterias } from '../pages/usu_materias/usu_materias';
 import { HomePage } from '../pages/home/home';
 
+//services
+import { UsersRest } from '../services/apirest/usersrest';
+import { SubjectsRest } from '../services/apirest/subjectsrest'
+import { HttpModule } from "@angular/http";
+import { User } from '../services/dataUser/user'
+
 @NgModule({
   declarations: [
     MyApp,
@@ -20,6 +26,7 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -32,6 +39,9 @@ import { HomePage } from '../pages/home/home';
   ],
   providers: [
     StatusBar,
+    UsersRest,
+    SubjectsRest,
+    User,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
