@@ -17,17 +17,7 @@ export class UsersRest{
         this.http.get("https://dam20182-guerra-martinez-u2t05.herokuapp.com/users/"+no)
         .subscribe(
             (res) => {            
-                this.user = res.json()             
-
-                let valid_user = this.equal(no,this.user.usuario.no)
-                let valid_nip = this.equal(nip, this.user.usuario.nip)
-                
-                if(valid_user && valid_nip){
-                    console.log("Welcom "+this.user.usuario.name)                
-                }
-                else{
-                    console.log("usuario invalido o nip incorrecto")
-                }
+                this.user = res.json()                             
             },
             (err) => {
                 console.log(err)

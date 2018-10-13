@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
-import { Materias } from '../materias/materias';
+import { NavController, MenuController, AlertController } from 'ionic-angular';
 import { UsersRest } from '../../services/apirest/usersrest'
 import { Events } from 'ionic-angular'
 import { HomePage } from '../home/home';
@@ -19,7 +18,8 @@ export class LogInPage {
     public navCtrl: NavController,
     public userrest:UsersRest,
     public event: Events,
-    public menuCtrl: MenuController){
+    public menuCtrl: MenuController,
+    public alertCtrl: AlertController){
       
       this.menuCtrl.enable(true, 'myMenu');    
       this.user = {
@@ -31,8 +31,13 @@ export class LogInPage {
   }
   
   public goToHome(){
-    //this.validUser()
-    this.navCtrl.setRoot(HomePage,{usuario: this.validUser()})
+    if(!this.validUser()){
+      this.presentAlert()
+      console.log('usuario invalido')
+    }
+    else{
+      this.navCtrl.setRoot(HomePage,{usuario: this.validUser()})
+    }    
   }
 
   validUser(){
@@ -41,6 +46,9 @@ export class LogInPage {
       var nip_exist = this.equal(this.userrest.user.usuarios[i].nip, this.user.nip)
       if( no_exist && nip_exist ){                
         return this.userrest.user.usuarios[i]
+      }
+      else{
+        return false
       }
     }
   }
@@ -51,6 +59,15 @@ export class LogInPage {
     }else{
         return false
     }    
+  }
+
+  presentAlert(){
+    let alert = this.alertCtrl.create({
+      title: 'Datos incorrectos',
+      subTitle: 'El numero de control o nip son incorrectos',
+      buttons: ['Aceptar']
+    });
+    alert.present();
   }
 }
 
