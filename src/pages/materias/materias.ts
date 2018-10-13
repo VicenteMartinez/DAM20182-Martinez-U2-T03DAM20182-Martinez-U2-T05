@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
 import { UsuMaterias } from '../usu_materias/usu_materias';
 
 @Component({
@@ -8,8 +8,8 @@ import { UsuMaterias } from '../usu_materias/usu_materias';
 })
 export class Materias {
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(public navCtrl: NavController, public menuCtrl:MenuController) {
+    this.menuCtrl.enable(false, 'myMenu');
   }
 
   public goToHome(){

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
 import { Materias } from '../materias/materias';
 import { UsersRest } from '../../services/apirest/usersrest'
 import { Events } from 'ionic-angular'
@@ -18,8 +18,10 @@ export class LogInPage {
   constructor(
     public navCtrl: NavController,
     public userrest:UsersRest,
-    public event: Events
-    ){
+    public event: Events,
+    public menuCtrl: MenuController){
+      
+      this.menuCtrl.enable(true, 'myMenu');    
       this.user = {
         no: '14401032',
         nip: '7545',
@@ -30,7 +32,7 @@ export class LogInPage {
   
   public goToHome(){
     //this.validUser()
-    this.navCtrl.push(HomePage,{usuario: this.validUser()})
+    this.navCtrl.setRoot(HomePage,{usuario: this.validUser()})
   }
 
   validUser(){
