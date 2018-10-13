@@ -14,7 +14,7 @@ import { HomePage } from '../pages/home/home';
 import { UsersRest } from '../services/apirest/usersrest';
 import { SubjectsRest } from '../services/apirest/subjectsrest'
 import { HttpModule } from "@angular/http";
-
+import { User } from '../services/dataUser/user'
 
 @NgModule({
   declarations: [
@@ -41,6 +41,7 @@ import { HttpModule } from "@angular/http";
     StatusBar,
     UsersRest,
     SubjectsRest,
+    User,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

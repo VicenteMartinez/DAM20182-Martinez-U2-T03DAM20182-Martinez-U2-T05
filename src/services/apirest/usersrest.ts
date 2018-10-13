@@ -1,6 +1,7 @@
 import { Injectable  } from '@angular/core'
 import { Http } from '@angular/http'
 import { HomePage } from '../../pages/home/home'
+import { SubjectsRest } from './subjectsrest'
 //import { NavController, NavParams } from 'ionic-angular'
 
 @Injectable()
@@ -8,7 +9,8 @@ export class UsersRest{
 
     public user:any;
     constructor (
-        public http:Http){
+        public http:Http,
+        public subjects: SubjectsRest){
 
     }
     getUser(no, nip){
@@ -21,8 +23,7 @@ export class UsersRest{
                 let valid_nip = this.equal(nip, this.user.usuario.nip)
                 
                 if(valid_user && valid_nip){
-                    console.log("Welcom "+this.user.usuario.name)
-                    //this.navCtrl.push(HomePage)
+                    console.log("Welcom "+this.user.usuario.name)                
                 }
                 else{
                     console.log("usuario invalido o nip incorrecto")

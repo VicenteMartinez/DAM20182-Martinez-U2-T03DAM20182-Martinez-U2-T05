@@ -1,18 +1,25 @@
 <ion-header>
     <ion-navbar>      
-      <ion-title>
+        <ion-title>
         
-      </ion-title>
+        </ion-title>
     </ion-navbar>
-  </ion-header>
+</ion-header>
 
 <ion-content padding style="background: '#5a5a5a'">
-  <div id="contenedor1">
-    <h1>Bienvenido</h1>
-  <h1>Nombre_usuario</h1>
-</div>
-  <div id="contenedor2" class="relative">
-    <button ion-button  color="light" outline (click)="goToHome()"> Mis Materias</button>
-  </div>
+    <div id="contenedor1">
+        <h1>Bienvenido</h1>
+        <h1>{{data_user.user_data._name}}</h1>
+    </div>
+    
+    <ion-card *ngFor="let subject of subjects">
+      <ion-card-header>
+        {{subject.name}}
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="subject.photo" width="100%" height="200px">
+        <h4>{{subject.description}}</h4>
+      </ion-card-content>
+    </ion-card>
   
 </ion-content>

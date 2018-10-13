@@ -13,10 +13,10 @@ export class SubjectsRest{
         this.http.get("https://dam20182-guerra-martinez-u2t05.herokuapp.com/subjects/"+no)
         .subscribe(
             (res) => {
-
-                this.subjects = res.json()
-                console.log("aqui esta el resultado")
-                return res.json()
+                res.json()
+                this.subjects = res.json().oneUserSubjects
+                //console.log("aqui esta el resultado "+this.subjects)
+                
             },
             (err) => {
                 console.log(err)
