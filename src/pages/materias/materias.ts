@@ -14,8 +14,6 @@ export class Materias {
 
   public goToHome(){
     this.navCtrl.push(UsuMaterias);  
-       
-    
-}
+  }
 
 }
